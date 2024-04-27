@@ -1,4 +1,3 @@
-import { EMPTY_VALUE } from "../constants";
 import { initialFormData } from "../initialValue";
 import { countryValueType, formDataType } from "../types";
 import { Select } from "./Select";
@@ -16,14 +15,10 @@ export function CountrySelect({
       name="selectCountry"
       options={formData.countries}
       onSelect={(selectedValue) => {
-        if (selectedValue !== EMPTY_VALUE) {
-          setFormData({
-            ...formData,
-            countryChecked: selectedValue as countryValueType,
-          });
-        } else {
-          setFormData({ ...initialFormData });
-        }
+        setFormData({
+          ...initialFormData,
+          countryChecked: selectedValue as countryValueType,
+        });
       }}
     />
   );

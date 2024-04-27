@@ -21,7 +21,9 @@ export function Select({
       disabled={isDisable}
     >
       {options.map((city) => (
-        <option value={city.value}>{city.label}</option>
+        <option key={city.value} value={city.value}>
+          {city.label}
+        </option>
       ))}
     </select>
   );
