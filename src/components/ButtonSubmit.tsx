@@ -1,5 +1,4 @@
 import { formDataType } from "../types";
-import { Select } from "./Select";
 
 export function ButtonSubmit({ formData }: { formData: formDataType }) {
   const isDisable =
