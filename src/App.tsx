@@ -1,45 +1,23 @@
 import React, { useState } from "react";
 import "./App.css";
-import { countryValueType, formDataType } from "./types";
-import { initialFomrData } from "./initialValue";
-import { CitySelect } from "./CitySelect";
-import { EMPTY_VALUE } from "./constants";
+import { formDataType } from "./types";
+import { initialFormData } from "./initialValue";
+import { CitiesSelect } from "./components/CitiesSelect";
+import { UniversitySelect } from "./components/UniversitySelect";
+import { AccommodatioSelect } from "./components/AccommodatioSelect";
+import { ButtonSubmit } from "./components/ButtonSubmit";
+import { CountrySelect } from "./components/CountrySelect";
 
 function App() {
-  const [formData, setFormData] = useState<formDataType>(initialFomrData);
+  const [formData, setFormData] = useState<formDataType>(initialFormData);
   return (
     <main>
       <form>
-        <select
-          name="selectCountry"
-          onChange={(e) => {
-            console.log(e.target.value);
-            setFormData({
-              ...formData,
-              countryChecked: e.target.value as countryValueType,
-            });
-          }}
-        >
-          {formData.countries.map((country) => (
-            <option value={country.value} key={country.value}>
-              {country.label}
-            </option>
-          ))}
-        </select>
-
-        {formData.countryChecked ? (
-          <CitySelect
-            cities={formData.cities[formData.countryChecked]}
-            onSelect={(city) =>
-              setFormData({
-                ...formData,
-                cityChecked: city,
-              })
-            }
-          />
-        ) : (
-          <></>
-        )}
+        <CountrySelect formData={formData} setFormData={setFormData} />
+        <CitiesSelect formData={formData} setFormData={setFormData} />
+        <UniversitySelect formData={formData} setFormData={setFormData} />
+        <AccommodatioSelect formData={formData} setFormData={setFormData} />
+        <ButtonSubmit formData={formData} />
       </form>
     </main>
   );

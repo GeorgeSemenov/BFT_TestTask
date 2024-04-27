@@ -1,7 +1,7 @@
 import { formDataType } from "./types";
 import { EMPTY_VALUE } from "./constants";
 
-export const initialFomrData: formDataType = {
+export const initialFormData: formDataType = {
   countries: [
     { label: "Выбор страны", value: EMPTY_VALUE },
     { label: "РБ", value: "rb" },
